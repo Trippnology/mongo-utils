@@ -122,5 +122,9 @@ makeCommandArguments = (options, object) ->
 
 makeArgumentString = (args) ->
   str = ""
-  str += " '#{arg}'" for arg in args
+  for arg in args
+    if process.platform is 'win32'
+      str += " #{arg}"
+    else
+      str += " '#{arg}'"
   str
