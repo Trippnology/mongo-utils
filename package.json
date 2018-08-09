@@ -1,5 +1,5 @@
 {
-  "name": "mongo-utils",
+  "name": "@trippnology/mongo-utils",
   "description": "Friendly interface to mongodump and mongorestore commands.",
   "keywords": [
     "mongodb",
