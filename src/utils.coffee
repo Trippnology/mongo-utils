@@ -49,7 +49,6 @@ utils.makeDumpCommand = (connectionString, dirName) ->
   connectionParameters = utils.parseConnectionString connectionString
   commandOptions = makeCommandOptions connectionParameters
   commandOptions.out = dirName
-  commandOptions.gzip = true
   commandArguments = makeCommandArguments commandOptions
   argumentString = makeArgumentString commandArguments
   "mongodump#{argumentString}"
@@ -62,7 +61,6 @@ utils.makeRestoreCommand = (connectionString, dirName) ->
   connectionParameters = utils.parseConnectionString connectionString
   commandOptions = makeCommandOptions connectionParameters
   commandOptions.drop = true
-  commandOptions.gzip = true
   commandArguments = makeCommandArguments commandOptions, actualDirName
   argumentString = makeArgumentString commandArguments
   "mongorestore#{argumentString}"
