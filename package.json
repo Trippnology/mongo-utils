@@ -1,7 +1,13 @@
 {
   "name": "@trippnology/mongo-utils",
   "description": "Friendly interface to mongodump and mongorestore commands.",
-  "keywords": ["mongodb", "mongodump", "mongorestore", "heroku", "mongohq"],
+  "keywords": [
+    "mongodb",
+    "mongodump",
+    "mongorestore",
+    "heroku",
+    "mongohq"
+  ],
   "version": "1.0.0",
   "directories": {
     "lib": "./lib"
@@ -13,7 +19,7 @@
   },
   "devDependencies": {
     "coffee-script": "1.6.x",
-    "mocha": "~1.9.0"
+    "mocha": "5.2.0"
   },
   "engines": {
     "node": ">=0.8",
@@ -30,6 +36,6 @@
     "prepublish": "npm test",
     "preversion": "coffee --compile -m --output lib/ src/",
     "pretest": "coffee --compile -m --output lib/ src/",
-    "test": "make test"
+    "test": "mocha --recursive --exit"
   }
 }
