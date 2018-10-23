@@ -1,13 +1,7 @@
 {
   "name": "@trippnology/mongo-utils",
   "description": "Friendly interface to mongodump and mongorestore commands.",
-  "keywords": [
-    "mongodb",
-    "mongodump",
-    "mongorestore",
-    "heroku",
-    "mongohq"
-  ],
+  "keywords": ["mongodb", "mongodump", "mongorestore", "heroku", "mongohq"],
   "version": "1.0.0",
   "directories": {
     "lib": "./lib"
@@ -35,7 +29,7 @@
   "scripts": {
     "prepublish": "npm test",
     "preversion": "coffee --compile -m --output lib/ src/",
-    "pretest": "make build",
+    "pretest": "coffee --compile -m --output lib/ src/",
     "test": "make test"
   }
 }
