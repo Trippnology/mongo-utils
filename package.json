@@ -1,8 +1,14 @@
 {
   "name": "@trippnology/mongo-utils",
   "description": "Friendly interface to mongodump and mongorestore commands.",
-  "keywords": ["mongodb", "mongodump", "mongorestore", "heroku", "mongohq"],
-  "version": "0.5.0",
+  "keywords": [
+    "mongodb",
+    "mongodump",
+    "mongorestore",
+    "heroku",
+    "mongohq"
+  ],
+  "version": "1.0.0",
   "directories": {
     "lib": "./lib"
   },
