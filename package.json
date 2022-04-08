@@ -14,7 +14,7 @@
   },
   "main": "lib/utils.js",
   "dependencies": {
-    "heroku": "0.1.x",
+    "heroku": "0.2.0",
     "mongoson": "0.2.x"
   },
   "devDependencies": {
@@ -25,7 +25,6 @@
     "node": ">=0.8",
     "npm": ">=1.1"
   },
-  "optionalDependencies": {},
   "author": "Meryn Stol <merynstol@gmail.com>",
   "homepage": "https://github.com/meryn/mongo-utils",
   "repository": {
