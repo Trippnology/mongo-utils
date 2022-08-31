@@ -8,18 +8,18 @@
     "heroku",
     "mongohq"
   ],
-  "version": "1.0.3",
+  "version": "1.0.4",
   "directories": {
     "lib": "./lib"
   },
   "main": "lib/utils.js",
   "dependencies": {
-    "heroku": "0.2.0",
+    "heroku": "7.62.0",
     "mongoson": "0.2.x"
   },
   "devDependencies": {
     "coffee-script": "1.6.x",
-    "mocha": "5.2.0"
+    "mocha": "10.0.0"
   },
   "engines": {
     "node": ">=0.8",
