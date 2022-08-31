@@ -14,7 +14,7 @@
   },
   "main": "lib/utils.js",
   "dependencies": {
-    "heroku": "0.2.0",
+    "heroku": "7.62.0",
     "mongoson": "0.2.x"
   },
   "devDependencies": {
