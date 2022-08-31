@@ -19,7 +19,7 @@
   },
   "devDependencies": {
     "coffee-script": "1.6.x",
-    "mocha": "5.2.0"
+    "mocha": "10.0.0"
   },
   "engines": {
     "node": ">=0.8",
