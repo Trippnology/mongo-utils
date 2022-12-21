@@ -23,8 +23,6 @@ utils.restoreDatabase(connectionString, dirName, function(err, stdout, stderr) {
 utils.dumpHerokuMongoHQDatabase(appName, dirName, function(err, stdout, stderr) {});
 ```
 
-The heroku-mongohq functions look up the `MONGOHQ_URL` environment variable of your Heroku app, using the [heroku](https://github.com/toots/node-heroku) module.
-
 ## Configuration
 
 mongo-utils logs some messages to allow you to see what's going on behind the scenes, primarily when doing the using the dump or restore commands. To see what's being logged, you may assign a log function which takes a single `message` argument to `utils.log`. By default, `utils.log` is a noop.
@@ -36,8 +34,7 @@ utils.log = (msg) => console.log(msg);
 
 ## Prerequisites
 
-For the commands to work, you need to have `mongorestore` and `mongodump` in your path.  
-The Heroku-specific commands require a `HEROKU_API_KEY` environment variable to be set.
+For the commands to work, you need to have `mongorestore` and `mongodump` in your path.
 
 ## License
 
