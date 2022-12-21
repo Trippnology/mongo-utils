@@ -36,6 +36,12 @@ utils.log = (msg) => console.log(msg);
 
 For the commands to work, you need to have `mongorestore` and `mongodump` in your path.
 
+## Changelog
+
+-   `v2.0.0` Remove Heroku support
+-   `v1.1.0` Replace CoffeeScript with plain JS
+-   `v1.0.0` Orininal version by Meryn Stol
+
 ## License
 
 mongo-utils is released under the [MIT License](http://opensource.org/licenses/MIT).  
