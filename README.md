@@ -3,11 +3,11 @@
 mongo-utils provides a friendly interface to MongoDB's mongodump and mongorestore commands, as well as some utility functions.
 
 ## Synchronous functions
- 
-```coffee
-utils.parseConnectionString connectionString # mongo connection options object
-utils.makeRestoreCommand connectionString, sourceDir # mongorestore ...
-utils.makeDumpCommand connectionString, targetDir # mongodump ...
+
+```JS
+utils.parseConnectionString(connectionString); // mongo connection options object
+utils.makeRestoreCommand(connectionString, sourceDir); // mongorestore ...
+utils.makeDumpCommand(connectionString, targetDir); // mongodump ...
 ```
 
 ## Asynchronous functions
@@ -16,28 +16,31 @@ These functions simply wrap [`child_process.exec`](http://nodejs.org/api/child_p
 
 I advise to inspect `stdout` and `stderr` yourself if you use this module for any important dumps or restores, or verify the results otherwise.
 
-```coffee
-utils.dumpDatabase connectionString, dirName, (err, stdout, stderr) ->
-utils.dumpHerokuMongoHQDatabase appName, dirName, (err, stdout, stderr) ->
-utils.restoreDatabase connectionString, dirName, (err, stdout, stderr) ->
-utils.dumpHerokuMongoHQDatabase appName, dirName, (err, stdout, stderr) ->
+```JS
+utils.dumpDatabase(connectionString, dirName, function(err, stdout, stderr) {});
+utils.dumpHerokuMongoHQDatabase(appName, dirName, function(err, stdout, stderr) {});
+utils.restoreDatabase(connectionString, dirName, function(err, stdout, stderr) {});
+utils.dumpHerokuMongoHQDatabase(appName, dirName, function(err, stdout, stderr) {});
 ```
-
-The heroku-mongohq functions look up the `MONGOHQ_URL` environment variable of your Heroku app, using the [heroku](https://github.com/toots/node-heroku) module.
 
 ## Configuration
 
 mongo-utils logs some messages to allow you to see what's going on behind the scenes, primarily when doing the using the dump or restore commands. To see what's being logged, you may assign a log function which takes a single `message` argument to `utils.log`. By default, `utils.log` is a noop.
 
-```coffee
-utils = require "mongo-utils"
-utils.log = (msg) -> console.log msg
+```JS
+const utils = require('mongo-utils');
+utils.log = (msg) => console.log(msg);
 ```
 
 ## Prerequisites
 
-For the commands to work, you need to have `mongorestore` and `mongodump` in your path.  
-The Heroku-specific commands require a `HEROKU_API_KEY` environment variable to be set.
+For the commands to work, you need to have `mongorestore` and `mongodump` in your path.
+
+## Changelog
+
+-   `v2.0.0` Remove Heroku support
+-   `v1.1.0` Replace CoffeeScript with plain JS
+-   `v1.0.0` Orininal version by Meryn Stol
 
 ## License
 
