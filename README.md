@@ -1,4 +1,4 @@
-# mongo-utils [![Build Status](https://travis-ci.org/meryn/mongo-utils.png?branch=master)](https://travis-ci.org/meryn/mongo-utils)
+# mongo-utils
 
 mongo-utils provides a friendly interface to MongoDB's mongodump and mongorestore commands, as well as some utility functions.
 
@@ -18,9 +18,7 @@ I advise to inspect `stdout` and `stderr` yourself if you use this module for an
 
 ```JS
 utils.dumpDatabase(connectionString, dirName, function(err, stdout, stderr) {});
-utils.dumpHerokuMongoHQDatabase(appName, dirName, function(err, stdout, stderr) {});
 utils.restoreDatabase(connectionString, dirName, function(err, stdout, stderr) {});
-utils.dumpHerokuMongoHQDatabase(appName, dirName, function(err, stdout, stderr) {});
 ```
 
 ## Configuration
@@ -28,7 +26,7 @@ utils.dumpHerokuMongoHQDatabase(appName, dirName, function(err, stdout, stderr) 
 mongo-utils logs some messages to allow you to see what's going on behind the scenes, primarily when doing the using the dump or restore commands. To see what's being logged, you may assign a log function which takes a single `message` argument to `utils.log`. By default, `utils.log` is a noop.
 
 ```JS
-const utils = require('mongo-utils');
+const utils = require('@trippnology/mongo-utils');
 utils.log = (msg) => console.log(msg);
 ```
 
@@ -40,10 +38,10 @@ Requires Node.js 20.19.0 or newer (bson 7 requirement).
 
 ## Changelog
 
--   `v3.0.0` Replace mongoson (bson 0.3.x, critical advisories) with bson@7; Node.js >= 20.19.0; dump/restore output unchanged
+-   `v3.0.0` Replace mongoson (bson 0.3.x, critical advisories) with bson@7; Node.js >= 20.19.0; dump/restore output unchanged; `getConnectionInfo` now returns the parsed connection-string details instead of always defaulting to localhost:27017; bson moved to devDependencies (bring your own); published package now ships only `lib/`; dropped CoffeeScript source, Makefile and Travis config
 -   `v2.0.0` Remove Heroku support
 -   `v1.1.0` Replace CoffeeScript with plain JS
--   `v1.0.0` Orininal version by Meryn Stol
+-   `v1.0.0` Original version by Meryn Stol
 
 ## License
 

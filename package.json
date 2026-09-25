@@ -4,29 +4,31 @@
   "keywords": [
     "mongodb",
     "mongodump",
-    "mongorestore",
-    "heroku",
-    "mongohq"
+    "mongorestore"
   ],
   "version": "2.0.2",
   "directories": {
     "lib": "./lib"
   },
   "main": "lib/utils.js",
-  "dependencies": {
-    "bson": "7.3.3"
-  },
+  "files": [
+    "lib"
+  ],
   "devDependencies": {
+    "bson": "7.3.3",
     "mocha": "12.0.2"
   },
   "engines": {
     "node": ">=20.19.0"
   },
   "author": "Meryn Stol <merynstol@gmail.com>",
-  "homepage": "https://github.com/meryn/mongo-utils",
+  "contributors": [
+    "Trippnology"
+  ],
+  "homepage": "https://github.com/Trippnology/mongo-utils",
   "repository": {
     "type": "git",
-    "url": "git://github.com/meryn/mongo-utils.git"
+    "url": "git://github.com/Trippnology/mongo-utils.git"
   },
   "scripts": {
     "prepublishOnly": "npm test",

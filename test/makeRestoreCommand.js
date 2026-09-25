@@ -46,7 +46,7 @@ describe('makeRestoreCommand', function () {
 		var dirName, error;
 		dirName = '' + fixturesDir + '/not-existing';
 		try {
-			utils.makeDumpCommand(connString);
+			utils.makeRestoreCommand(connString, dirName);
 		} catch (_error) {
 			error = _error;
 			return assert.ok(true);
@@ -57,7 +57,7 @@ describe('makeRestoreCommand', function () {
 		var dirName, error;
 		dirName = '' + fixturesDir + '/invalid-dump-dir';
 		try {
-			utils.makeDumpCommand(connString);
+			utils.makeRestoreCommand(connString, dirName);
 		} catch (_error) {
 			error = _error;
 			return assert.ok(true);
@@ -67,7 +67,7 @@ describe('makeRestoreCommand', function () {
 	return it('throws an error if no dirName is given', function () {
 		var error;
 		try {
-			utils.makeDumpCommand(connString);
+			utils.makeRestoreCommand(connString);
 		} catch (_error) {
 			error = _error;
 			return assert.ok(true);
