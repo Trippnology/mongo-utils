@@ -36,8 +36,11 @@ utils.log = (msg) => console.log(msg);
 
 For the commands to work, you need to have `mongorestore` and `mongodump` in your path.
 
+Requires Node.js 20.19.0 or newer (bson 7 requirement).
+
 ## Changelog
 
+-   `v3.0.0` Replace mongoson (bson 0.3.x, critical advisories) with bson@7; Node.js >= 20.19.0; dump/restore output unchanged
 -   `v2.0.0` Remove Heroku support
 -   `v1.1.0` Replace CoffeeScript with plain JS
 -   `v1.0.0` Orininal version by Meryn Stol
