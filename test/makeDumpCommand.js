@@ -1,14 +1,34 @@
-var assert, connString, dirName, expectedCommand, utils;
+var assert, connString, dirName, expectedCommand, quoted, utils;
 
 assert = require('assert');
 
 connString =
 	'mongodb://heroku:flk3ungh0x3anflx1bab@staff.mongohq.com:10092/app1321916260066';
 
-expectedCommand =
-	'mongodump --db app1321916260066 --host staff.mongohq.com:10092 --username heroku --password flk3ungh0x3anflx1bab --out /dumps/mongodb/some-backup';
-
 dirName = '/dumps/mongodb/some-backup';
+
+quoted = function (args) {
+	return args
+		.map(function (arg) {
+			return process.platform === 'win32' ? arg : "'" + arg + "'";
+		})
+		.join(' ');
+};
+
+expectedCommand =
+	'mongodump ' +
+	quoted([
+		'--db',
+		'app1321916260066',
+		'--host',
+		'staff.mongohq.com:10092',
+		'--username',
+		'heroku',
+		'--password',
+		'flk3ungh0x3anflx1bab',
+		'--out',
+		dirName,
+	]);
 
 utils = require('../');
 

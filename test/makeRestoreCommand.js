@@ -1,4 +1,4 @@
-var assert, connString, expectedCommand, fixturesDir, path, utils;
+var assert, connString, expectedCommand, fixturesDir, path, quoted, utils;
 
 assert = require('assert');
 
@@ -9,10 +9,29 @@ fixturesDir = path.resolve(__dirname, 'fixtures');
 connString =
 	'mongodb://heroku:flk3ungh0x3anflx1bab@staff.mongohq.com:10092/app1321916260066';
 
+quoted = function (args) {
+	return args
+		.map(function (arg) {
+			return process.platform === 'win32' ? arg : "'" + arg + "'";
+		})
+		.join(' ');
+};
+
 expectedCommand =
-	'mongorestore --db app1321916260066 --host staff.mongohq.com:10092 --username heroku --password flk3ungh0x3anflx1bab --drop ' +
-	fixturesDir +
-	'/fake-dump-dir/databasename';
+	'mongorestore ' +
+	quoted([
+		'--db',
+		'app1321916260066',
+		'--host',
+		'staff.mongohq.com:10092',
+		'--username',
+		'heroku',
+		'--password',
+		'flk3ungh0x3anflx1bab',
+		'--drop',
+	]) +
+	' ' +
+	quoted([fixturesDir + '/fake-dump-dir/databasename']);
 
 utils = require('../');
 
@@ -27,7 +46,7 @@ describe('makeRestoreCommand', function () {
 		var dirName, error;
 		dirName = '' + fixturesDir + '/not-existing';
 		try {
-			utils.makeDumpCommand(connString);
+			utils.makeRestoreCommand(connString, dirName);
 		} catch (_error) {
 			error = _error;
 			return assert.ok(true);
@@ -38,7 +57,7 @@ describe('makeRestoreCommand', function () {
 		var dirName, error;
 		dirName = '' + fixturesDir + '/invalid-dump-dir';
 		try {
-			utils.makeDumpCommand(connString);
+			utils.makeRestoreCommand(connString, dirName);
 		} catch (_error) {
 			error = _error;
 			return assert.ok(true);
@@ -48,7 +67,7 @@ describe('makeRestoreCommand', function () {
 	return it('throws an error if no dirName is given', function () {
 		var error;
 		try {
-			utils.makeDumpCommand(connString);
+			utils.makeRestoreCommand(connString);
 		} catch (_error) {
 			error = _error;
 			return assert.ok(true);
